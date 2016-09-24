@@ -1,4 +1,4 @@
-<?php 
+<?php
 class AppModel {
 	protected $numbprises = 4;
 	protected $capteurtemp = true;
@@ -54,26 +54,6 @@ class AppModel {
 		return $states;
 	}
 	
-	public function augmenterVisite($appareil){
-		$fichier = 'datas/stats/'.$appareil.'-compteur.txt';
-		$nombrevisite = $this->lireFichier($fichier);
-		$nombrevisite++;
-		$this->ecrireFichier($fichier,$nombrevisite);
-	}
-	public function afficherUtilisation($appareil) {
-		$this->lireFichier('datas/stats/'.$appareil.'-compteur.txt');
-		
-	}
-	public function getOneState($entity) {
-		$entity = $this->lireFichier('datas/'.$entity.'.txt');
-
-		if($entity == '1') {
-			$entity= 'checked';
-		} else {
-			$entity = '';
-		}
-		return $entity;
-	}
 	protected function save() {
 		$database = fopen(getcwd().'/datas/datas.json','r+');
 		ftruncate($database,0);
