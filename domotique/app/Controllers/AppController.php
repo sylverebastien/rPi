@@ -1,5 +1,5 @@
-<?php 
-class AppController {	
+<?php
+class AppController {
 
 	public function index() {
 		$states = $this->App->getCurrentState();
@@ -47,10 +47,10 @@ class AppController {
 		$this->Prise->find('porte');
 		$this->Prise->toggle(0);
 		sleep(7);
-		$this->Prise->toggle(1);	
+		$this->Prise->toggle(1);
 	}
 	public function pc() {
-		if($this->val) { 
+		if($this->val) {
 			$this->Pc->turnOn();
 		}
 		else {
@@ -61,12 +61,8 @@ class AppController {
 		$reveil = $this->Gladys->find('auto-reveil');
 	}
 	public function stats() {
-		$verrouillage = $this->App->getOneState('verouillage');
-		$reveilauto = $this->App->getOneState('auto-reveil');
-		$chaufauto = $this->App->getOneState('auto-chauffage');
-		
 		$nb = $this->Prise->getStatsForEeach();
-		
+
 		include $this->viewpath.'stats-view.php';
 	}
 	public function chauffage() {
@@ -75,7 +71,7 @@ class AppController {
 		$this->Gladys->update();
 	}
 	public function mouvement() {
-		$contenu = $this->App->lireFichier('datas/verouillage.txt'); 
+		$contenu = $this->App->lireFichier('datas/verouillage.txt');
 		if($contenu == 1){
 			$this->Sms->sendSMS('+33'.NUMSMS.'','Alerte déclenchée, mouvement détecté dans la maison.','PREMIUM','Gladys');
 			$this->Gladys->direPhrase('Alarme. Appel vocal en cours vers le commissariat.');
@@ -86,17 +82,17 @@ class AppController {
 		include($this->viewpath.'ping-view.php');
 	}
 	public function decodeur() {
-		$this->Prise->find('decodeur');			
+		$this->Prise->find('decodeur');
 		$this->Prise->toggle($this->val);
 	}
 
 	public function lampe($lampe_to_toggle) {
-		$this->Prise->find('lampe'.$lampe_to_toggle);			
+		$this->Prise->find('lampe'.$lampe_to_toggle);
 		$this->Prise->toggle($this->val);
 	}
 
 	public function routeur() {
-		include $this->viewpath.'gladys-view.php'; 
+		include $this->viewpath.'gladys-view.php';
 	}
 
 	public function glad() {
