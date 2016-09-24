@@ -27,9 +27,6 @@ class PriseModel extends AppModel {
 		for ($i = 1; $i < $this->numbprises; $i++) {
 			$nb['lampe'.$i] = 'lampe'.$i;
 		}
-		foreach ($nb as $key => $stat) {
-			$nb[$key] = parent::afficherUtilisation($stat);
-		}
 		return $nb;
 	}
 	public function find($name) {
