@@ -1,6 +1,6 @@
 <?php
 class AppModel {
-	protected $numbprises = 4;
+	protected $numbprises = 6;
 	protected $capteurtemp = true;
 	protected $capteurhum = true;
 	protected $datas;
@@ -53,7 +53,7 @@ class AppModel {
 		}
 		return $states;
 	}
-	
+
 	protected function save() {
 		$database = fopen(getcwd().'/datas/datas.json','r+');
 		ftruncate($database,0);
