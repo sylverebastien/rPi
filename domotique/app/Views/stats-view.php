@@ -100,18 +100,18 @@
     </li>
    </ul>
 </div>
-<script type="text/javascript">
 
-                            function post(id){
-                            	var idpdf = id;
-                            	if ($('#'+id).is(':checked')) {
-                            	var val = "1";
-                            	}
-                            	else {
-	                            	var val = "0";
-                            	}
-	                          $.post( "index.php?q=ajax&action="+id+"", { val: val } );
-                            }
+<script type="text/javascript">
+function post(id){
+  var idpdf = id;
+  if ($('#'+id).is(':checked')) {
+    var val = "1";
+  }
+  else {
+    var val = "0";
+  }
+  $.post( "index.php?q=ajax&action="+id+"", { val: val } );
+}
 $("#chauffage").change(function() {
 	post('chauffage');
 });
