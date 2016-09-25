@@ -16,6 +16,6 @@
     "reveil":{"statut":1},
     "alarme":{"statut":1},
     "auto-chauffage":{"statut":1},
-    "verouillage":{"statut":1}
+    "verrouillage":{"statut":1}
   }
 }

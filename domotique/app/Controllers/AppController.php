@@ -27,15 +27,15 @@ class AppController {
 		$this->Gladys->direPhrase('C\'est fait.');
 	}
 	public function deverrouiller() {
-		$this->Prise->find('verouillage');
+		$this->Prise->find('verrouillage');
 		$this->Prise->toggle(1);
 		$this->App->save();
 	}
-	public function verouiller() {
+	public function verrouiller() {
 		$this->Prise->code = '10101';
 		$this->Prise->toggleSeveral(array(1,2,3,4),0);
 		$this->Gladys->pause();
-		$this->Gladys->direPhrase('Maison verouillée.');
+		$this->Gladys->direPhrase('Maison verrouillée.');
 	}
 	public function serveur() {
 		$this->Gladys->direPhrase('Le serveur redémarre.');
@@ -74,7 +74,7 @@ class AppController {
 		$this->Gladys->update();
 	}
 	public function mouvement() {
-		$contenu = $this->App->lireFichier('datas/verouillage.txt');
+		$contenu = $this->App->lireFichier('datas/verrouillage.txt');
 		if($contenu == 1){
 			$this->Sms->sendSMS('+33'.NUMSMS.'','Alerte déclenchée, mouvement détecté dans la maison.','PREMIUM','Gladys');
 			$this->Gladys->direPhrase('Alarme. Appel vocal en cours vers le commissariat.');
