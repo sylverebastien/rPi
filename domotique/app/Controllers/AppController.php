@@ -65,6 +65,9 @@ class AppController {
 
 		include $this->viewpath.'stats-view.php';
 	}
+	public function camera() {
+		include $this->viewpath.'musique-view.php';
+	}
 	public function chauffage() {
 		$this->Gladys->find('auto-chauffage');
 		$this->Gladys->statut = $this->val;
