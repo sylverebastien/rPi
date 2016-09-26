@@ -23,7 +23,7 @@ class PriseModel extends AppModel {
 	}
 
 	public function getStatsForEeach() {
-		$nb = ['sonnette'=>'sonnette', 'serveur'=>'serveur','datereboot'=>'reboot'];
+		$nb = ['pc'=>'pc','sonnette'=>'sonnette', 'serveur'=>'serveur','datereboot'=>'reboot'];
 		for ($i = 1; $i < $this->numbprises; $i++) {
 			$nb['lampe'.$i] = 'lampe'.$i;
 		}
