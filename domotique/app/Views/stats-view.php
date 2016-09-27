@@ -1,7 +1,7 @@
+<!-- Text inputs -->
 <div class="list-block">
   <ul>
-    <!-- Text inputs -->
- <li>
+    <li>
       <div class="item-content">
         <div class="item-inner">
           <div class="item-title label">Gestion automatisée chauffage</div>
@@ -27,7 +27,6 @@
         </div>
       </div>
     </li>
-	<li>
   </ul>
 </div>
 <div class="list-block">
@@ -39,53 +38,52 @@
         <div class="item-after"><?= $nb['lampe1']?></div>
       </div>
     </li>
-     <li class="item-content">
+    <li class="item-content">
       <div class="item-media"><i class="stats pe-7s-light"></i></div>
       <div class="item-inner">
         <div class="item-title">Lampe secondaire</div>
         <div class="item-after"><?php echo $nb['lampe2']?></div>
       </div>
     </li>
-     <li class="item-content">
+    <li class="item-content">
       <div class="item-media"><i class="stats pe-7s-light"></i></div>
       <div class="item-inner">
         <div class="item-title">LED TV</div>
         <div class="item-after"><?php echo $nb['lampe3']?></div>
       </div>
     </li>
-     <li class="item-content">
+    <li class="item-content">
       <div class="item-media"><i class="stats pe-7s-light"></i></div>
       <div class="item-inner">
         <div class="item-title">Chauffage</div>
         <div class="item-after"><?php echo $nb['lampe4']?></div>
       </div>
     </li>
-     <li class="item-content">
+    <li class="item-content">
       <div class="item-media"><i class="stats pe-7s-network"></i></div>
       <div class="item-inner">
         <div class="item-title">PC</div>
         <div class="item-after"><?php echo $nb['pc']?></div>
       </div>
     </li>
-     <li class="item-content">
+    <li class="item-content">
       <div class="item-media"><i class="stats pe-7s-server"></i></div>
       <div class="item-inner">
         <div class="item-title">Reboot serveur</div>
         <div class="item-after"><?php echo $nb['serveur']?></div>
       </div>
     </li>
-   </ul>
+  </ul>
   <div class="list-block-label">Statistiques débutées le 9 Février 2015.</div>
-	<ul>
-	 <li class="item-content">
+  <ul>
+    <li class="item-content">
       <div class="item-media"><i class="stats pe-7s-stopwatch"></i></div>
       <div class="item-inner">
-        <div class="item-title">Dernier Reboot
-        </div>
-            <div class="item-after">Le <?php echo $nb['datereboot'];?></span></div>
+        <div class="item-title">Dernier Reboot</div>
+        <div class="item-after">Le <?php echo $nb['datereboot'];?></div>
       </div>
     </li>
-   </ul>
+  </ul>
 </div>
 
 <script type="text/javascript">
@@ -100,9 +98,9 @@ function post(id){
   $.post( "index.php?q=ajax&action="+id+"", { val: val } );
 }
 $("#chauffage").change(function() {
-	post('chauffage');
+  post('chauffage');
 });
 $("#reveil").change(function() {
-	post('reveil');
+  post('reveil');
 });
 </script>
