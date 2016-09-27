@@ -28,19 +28,6 @@
       </div>
     </li>
 	<li>
-      <div class="item-content">
-        <div class="item-inner">
-          <div class="item-title label">État verrouillage</div>
-          <div class="item-input">
-            <label class="label-switch">
-              <input id="verrouillage" class="lampes" type="checkbox" <?= $verrouillage;?>>
-              <div class="checkbox"></div>
-            </label>
-          </div>
-        </div>
-      </div>
-    </li>
-
   </ul>
 </div>
 <div class="list-block">
@@ -114,9 +101,6 @@ function post(id){
 }
 $("#chauffage").change(function() {
 	post('chauffage');
-});
-$("#verrouillage").change(function() {
-	post('deverrouiller');
 });
 $("#reveil").change(function() {
 	post('reveil');
