@@ -1,6 +1,6 @@
 <?php
 class AppModel {
-	protected $numbprises = 6;
+	protected $numbprises = 4;
 	protected $capteurtemp = true;
 	protected $capteurhum = true;
 	protected $datas;
@@ -38,7 +38,7 @@ class AppModel {
 		$this->Prise = new PriseModel();
 		$this->Capteur = new CapteurModel();
 		$states = [];
-		for ($i = 1; $i < $this->numbprises; $i++) {
+		for ($i = 1; $i <= $this->numbprises; $i++) {
 			$states['lampe'.$i] = $this->Prise->find('lampe'.$i);
 			$states['lampe'.$i] = ($states['lampe'.$i]['statut'] == 1) ? 'checked' : '';
 		}
