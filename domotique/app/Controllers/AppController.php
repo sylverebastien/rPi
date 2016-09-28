@@ -62,7 +62,7 @@ class AppController {
 	}
 	public function stats() {
 		$states = $this->Gladys->getCurrentState();
-		$nb = $this->Prise->getStatsForEeach();
+		$nb = $this->Prise->getStatsForEach();
 		include $this->viewpath.'stats-view.php';
 	}
 	public function camera() {
