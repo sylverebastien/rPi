@@ -20,6 +20,15 @@ class GladysModel extends AppModel {
 		$this->datas['globals'][$this->name]['statut'] = $this->statut;
 		parent::save();
 	}
+	public function getCurrentState() {
+		$this->Prise = new GladysModel();
+		$states = [];
+		$states['auto-chauffage'] = $this->find('auto-chauffage');
+		$states['auto-chauffage'] = ($states['auto-chauffage']['statut'] == 1) ? 'checked' : '';
+		$states['reveil'] = $this->find('reveil');
+		$states['reveil'] = ($states['reveil']['statut'] == 1) ? 'checked' : '';
+		return $states;
+	}
 	public function respond($tothisphrase) {
 		$tothisphrase = ucfirst($tothisphrase);
 

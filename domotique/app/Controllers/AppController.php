@@ -61,8 +61,8 @@ class AppController {
 		$reveil = $this->Gladys->find('auto-reveil');
 	}
 	public function stats() {
+		$states = $this->Gladys->getCurrentState();
 		$nb = $this->Prise->getStatsForEeach();
-
 		include $this->viewpath.'stats-view.php';
 	}
 	public function camera() {
@@ -70,8 +70,6 @@ class AppController {
 	}
 	public function chauffage() {
 		$this->Gladys->find('auto-chauffage');
-		$this->Gladys->statut = $this->val;
-		$this->Gladys->update();
 	}
 	public function mouvement() {
 		$contenu = $this->App->lireFichier('datas/verrouillage.txt');
