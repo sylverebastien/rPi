@@ -16,6 +16,11 @@ class GladysModel extends AppModel {
 			}
 		}
 	}
+	public function toggle($val){
+		$this->statut = $val;
+		/* Action for either reveil or chauffage */
+		$this->update();
+	}
 	public function update() {
 		$this->datas['globals'][$this->name]['statut'] = $this->statut;
 		parent::save();

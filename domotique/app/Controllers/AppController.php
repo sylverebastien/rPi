@@ -58,7 +58,8 @@ class AppController {
 		}
 	}
 	public function reveil() {
-		$reveil = $this->Gladys->find('auto-reveil');
+		$reveil = $this->Gladys->find('reveil');
+		$this->Gladys->toggle($this->val);
 	}
 	public function stats() {
 		$states = $this->Gladys->getCurrentState();
@@ -70,6 +71,7 @@ class AppController {
 	}
 	public function chauffage() {
 		$this->Gladys->find('auto-chauffage');
+		$this->Gladys->toggle($this->val);
 	}
 	public function mouvement() {
 		$contenu = $this->App->lireFichier('datas/verrouillage.txt');
