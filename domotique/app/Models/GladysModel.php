@@ -55,18 +55,54 @@ class GladysModel extends AppModel {
 		}
 		switch($tothisphrase){
 
-			case 'Nova':
-				exec('sudo pkill mpg321');
-				exec('mpg321 "http://novazz.ice.infomaniak.ch/novazz-128.mp3"');
+			case 'Radio':
+			echo "Nova, Brume, Jazz, France inter, Canut.\n";
+			echo "Radio p pour arrêter";
 			break;
 
-			case 'Virgin':
-				exec('sudo pkill mpg321');
-				exec('mpg321 "http://vipicecast.yacast.net/virginradio_192"');
+			case 'Nova':
+			exec('sudo pkill mpg321');
+			$this->direPhrase('Lancement de Radio Nova');
+			sleep(1);
+			exec('sudo mpg321 "http://novazz.ice.infomaniak.ch/novazz-128"');
+			break;
+
+			case 'Brume':
+			exec('sudo pkill mpg321');
+			$this->direPhrase('Lancement de Brume');
+			sleep(1);
+			exec('sudo mpg321 "http://ice1.impek.com:80/radiobrume"');
+			break;
+
+			case 'Jazz':
+			exec('sudo pkill mpg321');
+			$this->direPhrase('Lancement de Jazz Radio');
+			sleep(1);
+			exec('sudo mpg321 "http://jazzlounge.ice.infomaniak.ch/jazzlounge-high.mp3?.mp3"');
+			break;
+
+			case 'France inter':
+			exec('sudo pkill mpg321');
+			$this->direPhrase('Lancement de France Inter');
+			sleep(1);
+			exec('sudo mpg321 "http://audio.scdn.arkena.com/11008/franceinter-midfi128.mp3"');
+			break;
+
+			case 'Canut':
+			exec('sudo pkill mpg321');
+			$this->direPhrase('Lancement de Radio Canut');
+			sleep(1);
+			exec('sudo mpg321 "http://live.francra.org:8000/radiocanut?.mp3"');
 			break;
 
 			case 'Vol':
-				exec('sudo amixer cset numid=1 -- '.$phraseadire.'');
+			exec('sudo amixer cset numid=1 -- '.$phraseadire.'');
+			break;
+
+			case 'Radio p':
+			exec('sudo pkill mpg321');
+			sleep(3);
+			$this->direPhrase('Arret de la Radio');
 			break;
 
 
@@ -74,25 +110,25 @@ class GladysModel extends AppModel {
 			case 'Salut':
 			case 'Bonjour':
 			case 'bonjour':
-				$this->direPhrase('Bonjour, comment allez-vous ?');
+			$this->direPhrase('Bonjour, comment allez-vous ?');
 			break;
 
 			case 'Exec':
-				echo exec($phraseadire);
+			echo exec($phraseadire);
 			break;
 
 			case 'Dis':
-				$this->direPhrase($phraseadire);
+			$this->direPhrase($phraseadire);
 			break;
 
 			case 'Play':
 			case 'Joue':
 			case 'Musique':
-				exec('sudo pkill mpg321');
-				$this->Music->pause();
-				$this->direPhrase('Je lance la musique');
-				sleep(1);
-				$this->Music->play();
+			exec('sudo pkill mpg321');
+			$this->Music->pause();
+			$this->direPhrase('Je lance la musique');
+			sleep(1);
+			$this->Music->play();
 			break;
 
 			case 'Off':
@@ -100,17 +136,17 @@ class GladysModel extends AppModel {
 			case 'stop':
 			case 'Stop':
 			case 'Pause':
-					$this->Music->pause();
+			$this->Music->pause();
 			break;
 
 			case 'precedent':
 			case 'Precedent':
 			case 'précedent':
-					$this->Music->precedent();
+			$this->Music->precedent();
 			break;
 
 			case 'Suivant':
-					$this->Music->suivant();
+			$this->Music->suivant();
 			break;
 
 			case 'On':
@@ -118,8 +154,8 @@ class GladysModel extends AppModel {
 			case 'Allume':
 			case 'Allume les lumières':
 			case 'Lumière':
-				$this->Prise->allumertout();
-				$this->direPhrase('Toutes les lumières ont été allumées.');
+			$this->Prise->allumertout();
+			$this->direPhrase('Toutes les lumières ont été allumées.');
 			break;
 
 			case 'Eteins':
@@ -128,12 +164,12 @@ class GladysModel extends AppModel {
 			case 'Éteins les lumières':
 			case 'Éteint les lumières':
 			case 'Éteindre':
-				$this->Prise->eteindretout();
-				$this->direPhrase('Toutes les lumières ont été éteintes.');
+			$this->Prise->eteindretout();
+			$this->direPhrase('Toutes les lumières ont été éteintes.');
 			break;
 
 			default:
-				$this->direPhrase('desolé, je n\'ai pas compris');
+			$this->direPhrase('desolé, je n\'ai pas compris');
 			break;
 
 		}

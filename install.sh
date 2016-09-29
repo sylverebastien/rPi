@@ -9,7 +9,7 @@ sudo apt-get -y autoremove
 sudo apt-get install -y apache2
 sudo apt-get install -y php5 libapache2-mod-php5
 sudo apt-get install -y curl php5-curl
-sudo apt-get install -y alsa-utils mpg123 moc moc-ffmpeg-plugin 
+sudo apt-get install -y alsa-utils mpg123 mpg321 moc moc-ffmpeg-plugin 
 sudo apt-get install -y wakeonlan
 
 cd ~/Downloads/
