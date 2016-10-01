@@ -61,6 +61,10 @@ class AppController {
 		$reveil = $this->Gladys->find('reveil');
 		$this->Gladys->toggle($this->val);
 	}
+	public function alarme() {
+		$reveil = $this->Gladys->find('alarme');
+		$this->Gladys->toggle($this->val);
+	}
 	public function stats() {
 		$states = $this->Gladys->getCurrentState();
 		$nb = $this->Prise->getStatsForEach();

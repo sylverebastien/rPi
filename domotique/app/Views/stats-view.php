@@ -7,7 +7,7 @@
           <div class="item-title label">Gestion automatisée chauffage</div>
           <div class="item-input">
             <label class="label-switch">
-              <input id="chauffage" class="lampes" type="checkbox" <?= $states['auto-chauffage'];?>>
+              <input id="chauffage" class="autotools" type="checkbox" <?= $states['auto-chauffage'];?>>
               <div class="checkbox"></div>
             </label>
           </div>
@@ -20,7 +20,20 @@
           <div class="item-title label">Gestion automatisée réveil</div>
           <div class="item-input">
             <label class="label-switch">
-              <input id="reveil" class="lampes" type="checkbox" <?= $states['reveil'];?>>
+              <input id="reveil" class="autotools" type="checkbox" <?= $states['reveil'];?>>
+              <div class="checkbox"></div>
+            </label>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="item-content">
+        <div class="item-inner">
+          <div class="item-title label">Gestion automatisée alarme</div>
+          <div class="item-input">
+            <label class="label-switch">
+              <input id="alarme" class="autotools" type="checkbox" <?= $states['alarme'];?>>
               <div class="checkbox"></div>
             </label>
           </div>
@@ -102,5 +115,8 @@ $("#chauffage").change(function() {
 });
 $("#reveil").change(function() {
   post('reveil');
+});
+$("#alarme").change(function() {
+  post('alarme');
 });
 </script>

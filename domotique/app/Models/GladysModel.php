@@ -32,6 +32,8 @@ class GladysModel extends AppModel {
 		$states['auto-chauffage'] = ($states['auto-chauffage']['statut'] == 1) ? 'checked' : '';
 		$states['reveil'] = $this->find('reveil');
 		$states['reveil'] = ($states['reveil']['statut'] == 1) ? 'checked' : '';
+		$states['alarme'] = $this->find('alarme');
+		$states['alarme'] = ($states['alarme']['statut'] == 1) ? 'checked' : '';
 		return $states;
 	}
 	public function respond($tothisphrase) {
