@@ -31,12 +31,14 @@ class PriseModel extends AppModel {
 			$nb['lampe'.$i] = $this->find('lampe'.$i);
 			$nb['lampe'.$i] = ($nb['lampe'.$i]['count']);
 		}
-		$nb['decodeur'] = $this->find('decodeur');
-		$nb['decodeur'] = ($nb['decodeur']['count']);
 		$nb['pc'] = $this->find('pc');
 		$nb['pc'] = ($nb['pc']['count']);
 		$nb['serveur'] = $this->afficherUtilisation();
 		$nb['datereboot'] = $this->afficherDate();
+		$nb['hp'] = $this->find('hp');
+		$nb['hp'] = ($nb['hp']['count']);
+		$nb['bt'] = $this->find('bt');
+		$nb['bt'] = ($nb['bt']['count']);
 		return $nb;
 	}
 

@@ -47,29 +47,47 @@
     <li class="item-content">
       <div class="item-media"><i class="stats pe-7s-light"></i></div>
       <div class="item-inner">
-        <div class="item-title">Lampe principale</div>
+        <div class="item-title">Lampe #1</div>
         <div class="item-after"><?= $nb['lampe1']?></div>
       </div>
     </li>
     <li class="item-content">
       <div class="item-media"><i class="stats pe-7s-light"></i></div>
       <div class="item-inner">
-        <div class="item-title">Lampe secondaire</div>
+        <div class="item-title">Lampe #2</div>
         <div class="item-after"><?php echo $nb['lampe2']?></div>
       </div>
     </li>
     <li class="item-content">
       <div class="item-media"><i class="stats pe-7s-light"></i></div>
       <div class="item-inner">
-        <div class="item-title">LED TV</div>
+        <div class="item-title">Lampe #3</div>
         <div class="item-after"><?php echo $nb['lampe3']?></div>
       </div>
     </li>
     <li class="item-content">
       <div class="item-media"><i class="stats pe-7s-light"></i></div>
       <div class="item-inner">
-        <div class="item-title">Chauffage</div>
+        <div class="item-title">Lampe #4</div>
         <div class="item-after"><?php echo $nb['lampe4']?></div>
+      </div>
+    </li>
+  </li>
+</ul>
+<div class="list-block">
+  <ul>
+    <li class="item-content">
+      <div class="item-media"><i class="stats pe-7s-bluetooth"></i></div>
+      <div class="item-inner">
+        <div class="item-title">BT</div>
+        <div class="item-after"><?php echo $nb['bt']?></div>
+      </div>
+    </li>
+    <li class="item-content">
+      <div class="item-media"><i class="stats pe-7s-music"></i></div>
+      <div class="item-inner">
+        <div class="item-title">HP</div>
+        <div class="item-after"><?php echo $nb['hp']?></div>
       </div>
     </li>
     <li class="item-content">
