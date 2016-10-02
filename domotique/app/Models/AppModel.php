@@ -66,8 +66,12 @@ class AppModel {
 			$states['lampe'.$i] = $this->Prise->find('lampe'.$i);
 			$states['lampe'.$i] = ($states['lampe'.$i]['statut'] == 1) ? 'checked' : '';
 		}
-		$states['decodeur'] = $this->Prise->find('decodeur');
-		$states['decodeur'] = ($states['decodeur']['statut'] == 1) ? 'checked' : '';
+
+		$states['hp'] = $this->Prise->find('hp');
+		$states['hp'] = ($states['hp']['statut'] == 1) ? 'checked' : '';
+
+		$states['bt'] = $this->Prise->find('bt');
+		$states['bt'] = ($states['bt']['statut'] == 1) ? 'checked' : '';
 
 		if($this->capteurtemp){
 			$states['temperature'] = $this->Capteur->get_temperature();

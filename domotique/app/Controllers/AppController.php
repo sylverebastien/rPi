@@ -98,6 +98,16 @@ class AppController {
 		$this->Prise->toggle($this->val);
 	}
 
+	public function hp() {
+		$this->Prise->find('hp');
+		$this->Prise->toggle($this->val);
+	}
+
+	public function bt() {
+		$this->Prise->find('bt');
+		$this->Prise->toggle($this->val);
+	}
+
 	public function routeur() {
 		include $this->viewpath.'gladys-view.php';
 	}

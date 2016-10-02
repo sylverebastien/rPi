@@ -1,10 +1,11 @@
 {
   "devices": {
-    "decodeur":{"statut":1,"prise_number":5,"code":"11100","count":0},
     "lampe1":{"statut":1,"prise_number":1,"code":"10101","count":0},
     "lampe2":{"statut":1,"prise_number":2,"code":"10101","count":0},
     "lampe3":{"statut":1,"prise_number":3,"code":"10101","count":0},
     "lampe4":{"statut":1,"prise_number":4,"code":"10101","count":0},
+    "hp":{"statut":1,"prise_number":5,"code":"11100","count":0},
+    "bt":{"statut":1,"prise_number":6,"code":"11100","count":0},
     "pc":{"statut":1,"prise_number":0,"code":"0","count":0}
   },
   "sensors": {

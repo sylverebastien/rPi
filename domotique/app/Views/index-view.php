@@ -24,7 +24,7 @@
               <li>
                 <div class="item-content">
                   <div class="item-inner">
-                    <div class="item-title label">Lampe principale</div>
+                    <div class="item-title label">Lampe #1</div>
                     <div class="item-input">
                       <label class="label-switch">
                         <input id="lampe1" class="lampes" type="checkbox" <?= $states['lampe1'];?>>
@@ -38,7 +38,7 @@
               <li>
                 <div class="item-content">
                   <div class="item-inner">
-                    <div class="item-title label">Lampe secondaire</div>
+                    <div class="item-title label">Lampe #2</div>
                     <div class="item-input">
                       <label class="label-switch">
                         <input id="lampe2" class="lampes" type="checkbox" <?= $states['lampe2'];?>>
@@ -48,11 +48,11 @@
                   </div>
                 </div>
               </li>
-              <!-- led -->
+              <!-- lampe3 -->
               <li>
                 <div class="item-content">
                   <div class="item-inner">
-                    <div class="item-title label">LED</div>
+                    <div class="item-title label">Lampe #3</div>
                     <div class="item-input">
                       <label class="label-switch">
                         <input id="lampe3" class="lampes" type="checkbox" <?= $states['lampe3'];?>>
@@ -62,7 +62,59 @@
                   </div>
                 </div>
               </li>
-              <!-- pc -->
+              <!-- lampe4 -->
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title label">Lampe #4</div>
+                    <div class="item-input">
+                      <label class="label-switch">
+                        <input id="lampe4" class="lampes" type="checkbox" <?= $states['lampe4'];?>>
+                        <div class="checkbox"></div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="list-block">
+            <ul>
+              <!-- BT -->
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title label">BT</div>
+                    <div class="item-input">
+                      <label class="label-switch">
+                        <input id="bt" class="hpbt" type="checkbox" <?= $states['bt'];?>>
+                        <div class="checkbox"></div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <!-- HP -->
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title label">HP</div>
+                    <div class="item-input">
+                      <label class="label-switch">
+                        <input id="hp" class="hpbt" type="checkbox" <?= $states['hp'];?>>
+                        <div class="checkbox"></div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="list-block">
+            <ul>
+              <!-- PC -->
               <li>
                 <div class="item-content">
                   <div class="item-inner">
@@ -76,49 +128,38 @@
                   </div>
                 </div>
               </li>
-              <!-- decodeur -->
-              <li>
-                <div class="item-content">
-                  <div class="item-inner">
-                    <div class="item-title label">Décodeur TV</div>
-                    <div class="item-input">
-                      <label class="label-switch">
-                        <input id="decodeur" class="lampes" type="checkbox" <?= $states['decodeur'];?>>
-                        <div class="checkbox"></div>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <!-- chauffage -->
-              <li>
-                <div class="item-content">
-                  <div class="item-inner">
-                    <div class="item-title label">Chauffage</div>
-                    <div class="item-input">
-                      <label class="label-switch">
-                        <input id="lampe4" class="lampes" type="checkbox" <?= $states['lampe4'];?>>
-                        <div class="checkbox"></div>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </li>
             </ul>
-          </div>
-          <div class="content-block">
-            <p><a href="#" onclick="post('eteindretout');" id="eteindretout" class="button save-storage-data">Éteindre tout</a></p>
-            <p><a href="#" onclick="post('allumertout');" id="allumertout" class="button save-storage-data">Allumer tout</a></p>
-            <p><a href="#" onclick="post('verouiller');" id="verouiller" class="button save-storage-data">Verrouiller</a></p>
           </div>
 
           <div class="content-block">
             <div class="row">
               <div class="col-50">
-                <a href="#" onclick="post('ouvrir');" id="ouvrir" class="button button-big button-red">Ouvrir</a>
+                <a href="#" onclick="post('allumerlampes');" id="allumerlampes" class="button button-big button-red">Lampes ON</a>
               </div>
               <div class="col-50">
-                <a href="#" onclick="post('fermer');" id="fermer" class="button button-big button-green">Fermer</a>
+                <a href="#" onclick="post('eteindrelampes');" id="eteindrelampes" class="button button-big button-green">Lampes OFF</a>
+              </div>
+            </div>
+
+          </div>
+          <div class="content-block">
+            <div class="row">
+              <div class="col-50">
+                <a href="#" onclick="post('allumerhpbt');" id="allumerhpbt" class="button button-big button-red">HP ON</a>
+              </div>
+              <div class="col-50">
+                <a href="#" onclick="post('eteindrehpbt');" id="eteindrehpbt" class="button button-big button-green">HP OFF</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="content-block">
+            <div class="row">
+              <div class="col-50">
+                <a href="#" onclick="post('allumertout');" id="allumertout" class="button button-big button-red">ON</a>
+              </div>
+              <div class="col-50">
+                <a href="#" onclick="post('eteindretout');" id="eteindretout" class="button button-big button-green">OFF</a>
               </div>
             </div>
           </div>
@@ -223,17 +264,14 @@ $("#ouvrir").on('click',function() {
     $("#ouvrir").text('Ouvrir');
   },2000);
 });
-$("#verouiller").on('click',function() {
-  $(this).text('Verouillage...');
+$("#verrouiller").on('click',function() {
+  $(this).text('Verrouillage...');
   setTimeout(function(){
-    $("#verouiller").text('Verouiller');
+    $("#verrouiller").text('Verrouiller');
   },2000);
 });
 $("#lampe1").change(function() {
   post('lampe1');
-});
-$("#decodeur").change(function() {
-  post('decodeur');
 });
 $("#lampe2").change(function() {
   post('lampe2');
@@ -243,6 +281,12 @@ $("#lampe3").change(function() {
 });
 $("#lampe4").change(function() {
   post('lampe4');
+});
+$("#hp").change(function() {
+  post('hp');
+});
+$("#bt").change(function() {
+  post('bt');
 });
 function post(id){
   var idpdf = id;
