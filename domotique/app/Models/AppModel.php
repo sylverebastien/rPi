@@ -5,10 +5,34 @@ class AppModel {
 	protected $capteurhum = true;
 	protected $datas;
 
-	public function ecrireDate($fichier){
+	public function ecrireDate(){
+		$file = fopen('datas/serveur-lastrestart.txt', 'r+');
 		$date = date('j/n \à H:i');
-		$this->ecrireFichier('stats/'.$fichier.'-compteur.txt',$date);
+		fseek($file, 0);
+		fputs($file, $date);
+		fclose($file);
 	}
+	public function afficherDate() {
+		$fichier = fopen('datas/serveur-lastrestart.txt', 'r+');
+		$nb = fgets($fichier);
+		fclose($fichier);
+		return $nb;
+	}
+	public function augmenterUtilisation(){
+		$fichier = fopen('datas/serveur-compteur.txt', 'r+');
+		$nb = fgets($fichier);
+		$nb++;
+		fseek($fichier, 0);
+		fputs($fichier, $nb);
+		fclose($fichier);
+	}
+	public function afficherUtilisation() {
+		$fichier = fopen('datas/serveur-compteur.txt', 'r+');
+		$nb = fgets($fichier);
+		fclose($fichier);
+		return $nb;
+	}
+
 	public function validateTempResult() {
 		if (isset($_GET['temp'])){
 			$temp = $_GET['temp'];

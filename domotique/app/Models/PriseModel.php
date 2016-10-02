@@ -35,8 +35,8 @@ class PriseModel extends AppModel {
 		$nb['decodeur'] = ($nb['decodeur']['count']);
 		$nb['pc'] = $this->find('pc');
 		$nb['pc'] = ($nb['pc']['count']);
-		$nb['serveur'] = date('j/n \à H:i');
-		$nb['datereboot'] = date('j/n \à H:i');
+		$nb['serveur'] = $this->afficherUtilisation();
+		$nb['datereboot'] = $this->afficherDate();
 		return $nb;
 	}
 

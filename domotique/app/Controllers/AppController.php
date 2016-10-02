@@ -39,8 +39,8 @@ class AppController {
 	}
 	public function serveur() {
 		$this->Gladys->direPhrase('Le serveur redémarre.');
-		$this->App->ecrireDate('reboot');
-		$this->App->augmenterVisite('serveur');
+		$this->App->ecrireDate();
+		$this->App->augmenterUtilisation();
 		exec('sudo reboot');
 	}
 	public function ouvrir() {
