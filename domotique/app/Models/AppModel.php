@@ -21,9 +21,8 @@ class AppModel {
 	public function augmenterUtilisation(){
 		$fichier = fopen('datas/serveur-compteur.txt', 'r+');
 		$nb = fgets($fichier);
-		$nb++;
 		fseek($fichier, 0);
-		fputs($fichier, $nb);
+		fputs($fichier, $nb+1);
 		fclose($fichier);
 	}
 	public function afficherUtilisation() {

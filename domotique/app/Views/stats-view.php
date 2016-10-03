@@ -114,6 +114,19 @@
         <div class="item-after">Le <?php echo $nb['datereboot'];?></div>
       </div>
     </li>
+    <li>
+      <div class="item-content">
+        <div class="item-inner">
+          <div class="item-title label">Reboot</div>
+          <div class="item-input">
+            <label class="label-switch" id="rebootlabel">
+              <input id="serveur" type="checkbox" >
+              <div class="checkbox"></div>
+            </label>
+          </div>
+        </div>
+      </div>
+    </li>
   </ul>
 </div>
 
@@ -136,5 +149,8 @@ $("#reveil").change(function() {
 });
 $("#alarme").change(function() {
   post('alarme');
+});
+$("#serveur").change(function() {
+  post('serveur');
 });
 </script>
