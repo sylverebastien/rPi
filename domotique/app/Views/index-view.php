@@ -252,11 +252,99 @@ $("#tabroot").click(function(){
   $('#routeur').load('index.php?q=ajax&action=routeur');
 });
 // Fonction
+$("#eteindrelampes").click(function(){
+  for (i = 1; i <= 4; i++) {
+    if ($('#lampe'+i).is(':checked')) {
+      $.post( "index.php?q=ajax&action=lampe"+i, { val: 0 } );
+      location.reload() ;
+    }
+  }
+  location.reload() ;
+});
+$("#allumerlampes").click(function(){
+  for (i = 1; i <= 4; i++) {
+    if ($('#lampe'+i).is(':checked')) {
+      location.reload() ;
+    }
+    else {
+      $.post( "index.php?q=ajax&action=lampe"+i, { val: 1 } );
+      location.reload() ;
+    }
+  }
+  location.reload() ;
+});
+$("#eteindrehpbt").click(function(){
+  if ($('#hp').is(':checked')) {
+    $.post( "index.php?q=ajax&action=hp", { val: 0 } );
+    location.reload() ;
+  }
+  if ($('#bt').is(':checked')) {
+    $.post( "index.php?q=ajax&action=bt", { val: 0 } );
+    location.reload() ;
+  }
+  location.reload() ;
+});
+$("#allumerhpbt").click(function(){
+  if ($('#hp').is(':checked')) {
+    location.reload() ;
+  }
+  else {
+    $.post( "index.php?q=ajax&action=hp", { val: 1 } );
+    location.reload() ;
+  }
+  if ($('#bt').is(':checked')) {
+    location.reload() ;
+  }
+  else {
+    $.post( "index.php?q=ajax&action=bt", { val: 1 } );
+    location.reload() ;
+  }
+  location.reload() ;
+});
 $("#eteindretout").click(function(){
-  $('.lampes').attr('checked', false);
+  for (i = 1; i <= 4; i++) {
+    if ($('#lampe'+i).is(':checked')) {
+      $.post( "index.php?q=ajax&action=lampe"+i, { val: 0 } );
+      location.reload() ;
+    }
+  }
+  location.reload() ;
+  if ($('#hp').is(':checked')) {
+    $.post( "index.php?q=ajax&action=hp", { val: 0 } );
+    location.reload() ;
+  }
+  if ($('#bt').is(':checked')) {
+    $.post( "index.php?q=ajax&action=bt", { val: 0 } );
+    location.reload() ;
+  }
+  location.reload() ;
 });
 $("#allumertout").click(function(){
-  $('.lampes').attr('checked', true);
+  for (i = 1; i <= 4; i++) {
+    if ($('#lampe'+i).is(':checked')) {
+      location.reload() ;
+    }
+    else {
+      $.post( "index.php?q=ajax&action=lampe"+i, { val: 1 } );
+      location.reload() ;
+    }
+  }
+  location.reload() ;
+  if ($('#hp').is(':checked')) {
+    location.reload() ;
+  }
+  else {
+    $.post( "index.php?q=ajax&action=hp", { val: 1 } );
+    location.reload() ;
+  }
+  if ($('#bt').is(':checked')) {
+    location.reload() ;
+  }
+  else {
+    $.post( "index.php?q=ajax&action=bt", { val: 1 } );
+    location.reload() ;
+  }
+  location.reload() ;
 });
 $("#ouvrir").on('click',function() {
   $(this).text('Ouverture...');
