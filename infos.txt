@@ -1,0 +1,14 @@
+Mail configuration :
+
+Configurer sSMTP en éditant le fichier /etc/ssmtp/ssmtp.conf. Ajoutez les lignes suivantes à la fin du fichier
+
+mailhub=smtp.gmail.com:587
+AuthUser=MY_GMAIL_EMAIL@gmail.com
+AuthPass=PASSWORD
+useSTARTTLS=YES
+useTLS=YES
+
+Mail utilisation :
+
+echo "Hello" | mail -s "This is the subject line" MY_GMAIL_EMAIL@gmail.com
+less /var/www/html/domotique/datas/datas.json | mail -s "Rapport" adresse@gmail.com

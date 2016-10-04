@@ -12,6 +12,9 @@ sudo apt-get install -y curl php5-curl
 sudo apt-get install -y alsa-utils mpg123 mpg321 moc moc-ffmpeg-plugin 
 sudo apt-get install -y wakeonlan
 
+sudo apt-get install -y ssmtp mailutils mpack
+sudo chfn -f "rPi" root
+
 cd ~/Downloads/
 git clone git://git.drogon.net/wiringPi
 git clone https://github.com/r10r/rcswitch-pi
