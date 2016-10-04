@@ -15,6 +15,8 @@ sudo apt-get install -y wakeonlan
 sudo apt-get install -y ssmtp mailutils mpack
 sudo chfn -f "rPi" root
 
+sudo apt-get install -y libttspico-utils
+
 cd ~/Downloads/
 git clone git://git.drogon.net/wiringPi
 git clone https://github.com/r10r/rcswitch-pi
