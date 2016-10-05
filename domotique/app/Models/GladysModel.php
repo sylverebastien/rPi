@@ -1,12 +1,5 @@
 <?php
 class GladysModel extends AppModel {
-	public function direPhrase($phrase) {
-		exec('sudo amixer cset numid=1 -- 0');
-		exec('mpg321 temp.mp3');
-		exec('sudo amixer cset numid=1 -- 2000');
-
-		return $phrase;
-	}
 	public function find($name) {
 		foreach ($this->globals as $global_name => $global) {
 			if ($global_name == $name) {
@@ -60,39 +53,52 @@ class GladysModel extends AppModel {
 			case 'Radio':
 			echo "Nova, Brume, Jazz, France inter, Canut.\n";
 			echo "Radio p pour arrêter";
+			exec('pico2wave -l fr-FR -w temp.wav "Novaa, Brume, Jazz, France inter, Canuut."');
+			exec('sudo omxplayer -o local temp.wav');
+			exec('rm temp.wav');
 			break;
 
 			case 'Nova':
 			exec('sudo pkill mpg321');
-			$this->direPhrase('Lancement de Radio Nova');
+			exec('pico2wave -l fr-FR -w temp.wav "Lancement de Radio Novaa."');
+			exec('sudo omxplayer -o local temp.wav');
+			exec('rm temp.wav');
 			sleep(1);
 			exec('sudo mpg321 "http://novazz.ice.infomaniak.ch/novazz-128"');
 			break;
 
 			case 'Brume':
 			exec('sudo pkill mpg321');
-			$this->direPhrase('Lancement de Brume');
+			exec('pico2wave -l fr-FR -w temp.wav "Lancement de Radio Brume."');
+			exec('sudo omxplayer -o local temp.wav');
+			exec('rm temp.wav');
 			sleep(1);
 			exec('sudo mpg321 "http://ice1.impek.com:80/radiobrume"');
 			break;
 
 			case 'Jazz':
 			exec('sudo pkill mpg321');
-			$this->direPhrase('Lancement de Jazz Radio');
+			exec('pico2wave -l fr-FR -w temp.wav "Lancement de Jazz Radio."');
+			exec('sudo omxplayer -o local temp.wav');
+			exec('rm temp.wav');
 			sleep(1);
 			exec('sudo mpg321 "http://jazzlounge.ice.infomaniak.ch/jazzlounge-high.mp3?.mp3"');
 			break;
 
 			case 'France inter':
 			exec('sudo pkill mpg321');
-			$this->direPhrase('Lancement de France Inter');
+			exec('pico2wave -l fr-FR -w temp.wav "Lancement de france inter."');
+			exec('sudo omxplayer -o local temp.wav');
+			exec('rm temp.wav');
 			sleep(1);
 			exec('sudo mpg321 "http://audio.scdn.arkena.com/11008/franceinter-midfi128.mp3"');
 			break;
 
 			case 'Canut':
 			exec('sudo pkill mpg321');
-			$this->direPhrase('Lancement de Radio Canut');
+			exec('pico2wave -l fr-FR -w temp.wav "Lancement de Radio canuut."');
+			exec('sudo omxplayer -o local temp.wav');
+			exec('rm temp.wav');
 			sleep(1);
 			exec('sudo mpg321 "http://live.francra.org:8000/radiocanut?.mp3"');
 			break;
@@ -103,8 +109,10 @@ class GladysModel extends AppModel {
 
 			case 'Radio p':
 			exec('sudo pkill mpg321');
-			sleep(3);
-			$this->direPhrase('Arret de la Radio');
+			sleep(1);
+			exec('pico2wave -l fr-FR -w temp.wav "Arrêt de la radio."');
+			exec('sudo omxplayer -o local temp.wav');
+			exec('rm temp.wav');
 			break;
 
 
@@ -112,7 +120,9 @@ class GladysModel extends AppModel {
 			case 'Salut':
 			case 'Bonjour':
 			case 'bonjour':
-			$this->direPhrase('Bonjour, comment allez-vous ?');
+			exec('pico2wave -l fr-FR -w temp.wav "Bonjour, comment allez vous ?"');
+			exec('sudo omxplayer -o local temp.wav');
+			exec('rm temp.wav');
 			break;
 
 			case 'Exec':
@@ -128,7 +138,9 @@ class GladysModel extends AppModel {
 			case 'Musique':
 			exec('sudo pkill mpg321');
 			$this->Music->pause();
-			$this->direPhrase('Je lance la musique');
+			exec('pico2wave -l fr-FR -w temp.wav "Je lance la musique."');
+			exec('sudo omxplayer -o local temp.wav');
+			exec('rm temp.wav');
 			sleep(1);
 			$this->Music->play();
 			break;
@@ -157,7 +169,9 @@ class GladysModel extends AppModel {
 			case 'Allume les lumières':
 			case 'Lumière':
 			$this->Prise->allumertout();
-			$this->direPhrase('Toutes les lumières ont été allumées.');
+			exec('pico2wave -l fr-FR -w temp.wav "Toutes les lumières ont été allumées."');
+			exec('sudo omxplayer -o local temp.wav');
+			exec('rm temp.wav');
 			break;
 
 			case 'Eteins':
@@ -167,11 +181,15 @@ class GladysModel extends AppModel {
 			case 'Éteint les lumières':
 			case 'Éteindre':
 			$this->Prise->eteindretout();
-			$this->direPhrase('Toutes les lumières ont été éteintes.');
+			exec('pico2wave -l fr-FR -w temp.wav "Toutes les lumières ont été éteintes."');
+			exec('sudo omxplayer -o local temp.wav');
+			exec('rm temp.wav');
 			break;
 
 			default:
-			$this->direPhrase('desolé, je n\'ai pas compris');
+			exec('pico2wave -l fr-FR -w temp.wav "Désolé, je n\'ai pas compris."');
+			exec('sudo omxplayer -o local temp.wav');
+			exec('rm temp.wav');
 			break;
 
 		}
