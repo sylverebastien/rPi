@@ -31,3 +31,5 @@ cd ~/Downloads/433Utils/RPi_utils/
 make
 sudo ln -s ~/Downloads/433Utils/RPi_utils/codesend /usr/bin/codesend
 rm -rf ~/Downloads/rcswitch-pi
+
+sudo service apache2 restart
