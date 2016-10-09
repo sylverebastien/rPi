@@ -6,6 +6,8 @@ sudo apt-get -y upgrade
 sudo apt-get -y dist-upgrade
 sudo apt-get -y autoremove
 
+sudo apt-get install -y bc
+
 sudo apt-get install -y apache2
 sudo apt-get install -y php5 libapache2-mod-php5
 sudo apt-get install -y curl php5-curl
