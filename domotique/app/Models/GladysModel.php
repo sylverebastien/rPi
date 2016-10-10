@@ -145,7 +145,6 @@ class GladysModel extends AppModel {
 			case 'Hello':
 			case 'Salut':
 			case 'Bonjour':
-			case 'bonjour':
 			$this->direPhrase('Bonjour, comment allez vous ?');
 			break;
 
@@ -158,53 +157,47 @@ class GladysModel extends AppModel {
 			break;
 
 			case 'Play':
-			case 'Joue':
 			case 'Musique':
-			exec('sudo pkill mpg321');
-			$this->Music->pause();
 			$this->direPhrase('Je lance la musique.');
 			sleep(1);
+			$this->Music = new MusicModel();
 			$this->Music->play();
 			break;
 
-			case 'Off':
-			case 'off':
-			case 'stop':
 			case 'Stop':
 			case 'Pause':
+			$this->Music = new MusicModel();
 			$this->Music->pause();
+			exec('sudo pkill mpg321');
 			break;
 
-			case 'precedent':
 			case 'Precedent':
-			case 'précedent':
+			case 'Précédent':
+			case 'Last':
+			$this->Music = new MusicModel();
 			$this->Music->precedent();
 			break;
 
 			case 'Suivant':
+			case 'Next':
+			$this->Music = new MusicModel();
 			$this->Music->suivant();
 			break;
 
-			case 'On':
-			case 'Lumières':
-			case 'Allume':
-			case 'Allume les lumières':
-			case 'Lumière':
+			case 'Lumières on':
+			case 'Lumieres on':
 			$this->Prise->allumertout();
 			$this->direPhrase('Toutes les lumières ont été allumées.');
 			break;
 
-			case 'Eteins':
-			case 'Eteindre':
-			case 'Éteins':
-			case 'Éteins les lumières':
-			case 'Éteint les lumières':
-			case 'Éteindre':
+			case 'Lumières off':
+			case 'Lumieres off':
 			$this->Prise->eteindretout();
 			$this->direPhrase('Toutes les lumières ont été éteintes.');
 			break;
 
 			case 'Meteo':
+			case 'Météo':
 			$this->meteo();
 			break;
 
