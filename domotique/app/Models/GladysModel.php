@@ -87,7 +87,7 @@ class GladysModel extends AppModel {
 		}
 		if ( stripos($tothisphrase, 'Vol') !== false && stripos($tothisphrase, 'Vol') == 0 ) {
 			$phraseadire = str_replace('Vol ', '', $tothisphrase);
-			$post = 'Vol';
+			$tothisphrase = 'Vol';
 		}
 		switch($tothisphrase){
 

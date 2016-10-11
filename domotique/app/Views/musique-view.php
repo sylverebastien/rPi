@@ -44,7 +44,7 @@
       <div class="item-inner">
         <div class="item-input">
           <div class="range-slider" >
-            <input type="range"  min="-3500" max="1000" value="-2500" step="100" id="volume" name="slider">
+            <input type="range"  min="-2800" max="400" value="-2300" step="100" id="volume" name="slider">
           </div>
         </div>
       </div>
