@@ -13,7 +13,7 @@
       <a href="#" onclick="envoi('canut');" id="canut" class="item-link list-button">Canut</a>
     </li>
     <li>
-      <a href="#" onclick="envoi('france-inter');" id="france-inter" class="item-link list-button">France inter</a>
+      <a href="#" onclick="envoi('france inter');" id="france inter" class="item-link list-button">France Inter</a>
     </li>
   </ul>
 </div>
