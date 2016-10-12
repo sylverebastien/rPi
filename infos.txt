@@ -7,24 +7,3 @@ AuthUser=MY_GMAIL_EMAIL@gmail.com
 AuthPass=PASSWORD
 useSTARTTLS=YES
 useTLS=YES
-
-Mail utilisation :
-
-echo "Hello" | mail -s "This is the subject line" MY_GMAIL_EMAIL@gmail.com
-less /var/www/html/domotique/datas/datas.json | mail -s "Rapport" adresse@gmail.com
-
-
-TTS utilisation :
-
-pico2wave  -l  fr-FR  -w  framboise.wav  "Bienvenue sur framboise trois quatorze !"
-omxplayer -o local framboise.wav
-
-nano dit.sh
-#!/bin/bash
-pico2wave -l fr-FR -w /tmp/test.wav "$1"
-aplay -q /tmp/test.wav
-rm /tmp/test.wav
-
-sudo chmod 755 dit.sh
-amixer sset 'PCM' 95%
-./dit.sh "La température est de douze virgule six degrés "
