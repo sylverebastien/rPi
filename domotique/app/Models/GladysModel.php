@@ -32,6 +32,12 @@ class GladysModel extends AppModel {
 		$this->direPhrase($date);
 	}
 
+	public function alarme($val){
+		if ($val == "1") {
+			exec('sudo motion'); }
+		else { exec('sudo pkill motion'); }
+	}
+
 	public function direPhrase($phrase) {
 		echo "$phrase";
 		`pico2wave -l fr-FR -w temp.wav "$phrase"`;
@@ -53,8 +59,9 @@ class GladysModel extends AppModel {
 		$this->statut = $val;
 		/* Action for either reveil or chauffage */
 		$this->update();
+		if ($this->name == "alarme") { $this->alarme($val); }
 	}
-	
+
 	public function update() {
 		$this->datas['globals'][$this->name]['statut'] = $this->statut;
 		parent::save();
