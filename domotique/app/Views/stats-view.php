@@ -4,7 +4,7 @@
     <li>
       <div class="item-content">
         <div class="item-inner">
-          <div class="item-title label">Gestion automatisée chauffage</div>
+          <div class="item-title label">Gestion auto chauffage</div>
           <div class="item-input">
             <label class="label-switch">
               <input id="chauffage" class="autotools" type="checkbox" <?= $states['auto-chauffage'];?>>
@@ -17,7 +17,7 @@
     <li>
       <div class="item-content">
         <div class="item-inner">
-          <div class="item-title label">Gestion automatisée réveil</div>
+          <div class="item-title label">Gestion auto réveil</div>
           <div class="item-input">
             <label class="label-switch">
               <input id="reveil" class="autotools" type="checkbox" <?= $states['reveil'];?>>
@@ -30,7 +30,7 @@
     <li>
       <div class="item-content">
         <div class="item-inner">
-          <div class="item-title label">Gestion automatisée alarme</div>
+          <div class="item-title label">Gestion auto alarme</div>
           <div class="item-input">
             <label class="label-switch">
               <input id="alarme" class="autotools" type="checkbox" <?= $states['alarme'];?>>
@@ -105,7 +105,7 @@
       </div>
     </li>
   </ul>
-  <div class="list-block-label">Statistiques débutées le 9 Février 2015.</div>
+  <div class="list-block-label">Statistiques débutées le 18 Octobre 2016.</div>
   <ul>
     <li class="item-content">
       <div class="item-media"><i class="stats pe-7s-stopwatch"></i></div>

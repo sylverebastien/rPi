@@ -141,18 +141,6 @@
               </div>
             </div>
 
-          </div>
-          <div class="content-block">
-            <div class="row">
-              <div class="col-50">
-                <a href="#" onclick="post('allumerhpbt');" id="allumerhpbt" class="button button-big button-red">HP ON</a>
-              </div>
-              <div class="col-50">
-                <a href="#" onclick="post('eteindrehpbt');" id="eteindrehpbt" class="button button-big button-green">HP OFF</a>
-              </div>
-            </div>
-          </div>
-
           <div class="content-block">
             <div class="row">
               <div class="col-50">
@@ -251,7 +239,8 @@ $("#tabstats").click(function(){
 $("#tabroot").click(function(){
   $('#routeur').load('index.php?q=ajax&action=routeur');
 });
-// Fonction
+
+// Fonctions
 $("#eteindrelampes").click(function(){
   for (i = 1; i <= 4; i++) {
     if ($('#lampe'+i).is(':checked')) {
@@ -261,6 +250,7 @@ $("#eteindrelampes").click(function(){
   }
   location.reload() ;
 });
+
 $("#allumerlampes").click(function(){
   for (i = 1; i <= 4; i++) {
     if ($('#lampe'+i).is(':checked')) {
@@ -273,34 +263,7 @@ $("#allumerlampes").click(function(){
   }
   location.reload() ;
 });
-$("#eteindrehpbt").click(function(){
-  if ($('#hp').is(':checked')) {
-    $.post( "index.php?q=ajax&action=hp", { val: 0 } );
-    location.reload() ;
-  }
-  if ($('#bt').is(':checked')) {
-    $.post( "index.php?q=ajax&action=bt", { val: 0 } );
-    location.reload() ;
-  }
-  location.reload() ;
-});
-$("#allumerhpbt").click(function(){
-  if ($('#hp').is(':checked')) {
-    location.reload() ;
-  }
-  else {
-    $.post( "index.php?q=ajax&action=hp", { val: 1 } );
-    location.reload() ;
-  }
-  if ($('#bt').is(':checked')) {
-    location.reload() ;
-  }
-  else {
-    $.post( "index.php?q=ajax&action=bt", { val: 1 } );
-    location.reload() ;
-  }
-  location.reload() ;
-});
+
 $("#eteindretout").click(function(){
   for (i = 1; i <= 4; i++) {
     if ($('#lampe'+i).is(':checked')) {
@@ -319,6 +282,7 @@ $("#eteindretout").click(function(){
   }
   location.reload() ;
 });
+
 $("#allumertout").click(function(){
   for (i = 1; i <= 4; i++) {
     if ($('#lampe'+i).is(':checked')) {
@@ -346,18 +310,7 @@ $("#allumertout").click(function(){
   }
   location.reload() ;
 });
-$("#ouvrir").on('click',function() {
-  $(this).text('Ouverture...');
-  setTimeout(function(){
-    $("#ouvrir").text('Ouvrir');
-  },2000);
-});
-$("#verrouiller").on('click',function() {
-  $(this).text('Verrouillage...');
-  setTimeout(function(){
-    $("#verrouiller").text('Verrouiller');
-  },2000);
-});
+
 $("#lampe1").change(function() {
   post('lampe1');
 });
@@ -376,6 +329,7 @@ $("#hp").change(function() {
 $("#bt").change(function() {
   post('bt');
 });
+
 function post(id){
   var idpdf = id;
   if ($('#'+id).is(':checked')) {
@@ -386,6 +340,7 @@ function post(id){
   }
   $.post( "index.php?q=ajax&action="+id+"", { val: val } );
 }
+
 $("#pc").change(function() {
   post('pc');
   setTimeout(function(){
@@ -399,4 +354,5 @@ $("#pc").change(function() {
     location.reload() ;
   }, 40000);
 });
+
 </script>

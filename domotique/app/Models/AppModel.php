@@ -12,12 +12,14 @@ class AppModel {
 		fputs($file, $date);
 		fclose($file);
 	}
+	
 	public function afficherDate() {
 		$fichier = fopen('datas/serveur-lastrestart.txt', 'r+');
 		$nb = fgets($fichier);
 		fclose($fichier);
 		return $nb;
 	}
+	
 	public function augmenterUtilisation(){
 		$fichier = fopen('datas/serveur-compteur.txt', 'r+');
 		$nb = fgets($fichier);
@@ -25,6 +27,7 @@ class AppModel {
 		fputs($fichier, $nb+1);
 		fclose($fichier);
 	}
+	
 	public function afficherUtilisation() {
 		$fichier = fopen('datas/serveur-compteur.txt', 'r+');
 		$nb = fgets($fichier);
@@ -57,6 +60,7 @@ class AppModel {
 			$this->sms->sendSMS('+33'.$this->numsms.'','Température anormale détectée dans la maison.','PREMIUM','Gladys');
 		}
 	}
+	
 	public function getCurrentState() {
 		$this->Prise = new PriseModel();
 		$this->Capteur = new CapteurModel();
@@ -87,6 +91,7 @@ class AppModel {
 		fwrite($database, json_encode($this->datas));
 		fclose($database);
 	}
+	
 	public function __construct() {
 		$json = file_get_contents(getcwd().'/datas/datas.json');
 		$this->datas = json_decode($json, true);

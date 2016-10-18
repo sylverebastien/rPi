@@ -1,11 +1,9 @@
 <?php
 class MusicModel {
-	// Gestion de la musique
+
 	public function play() {
 		exec('sudo mocp -S');
-		exec('sudo mocp -c');
-		exec('sudo mocp -a /var/www/app/assets/music');
-		exec('sudo mocp -t shuffle');
+		exec('sudo mocp -c -a /var/www/html/domotique/app/assets/music -t shuffle');
 		exec('sudo mocp -p');
 	}
 	

@@ -19,6 +19,8 @@ sudo chfn -f "rPi" root
 
 sudo apt-get install -y libttspico-utils
 
+sudo apt-get install motion
+
 cd ~/Downloads/
 git clone git://git.drogon.net/wiringPi
 git clone https://github.com/r10r/rcswitch-pi

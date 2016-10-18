@@ -7,3 +7,11 @@ AuthUser=MY_GMAIL_EMAIL@gmail.com
 AuthPass=PASSWORD
 useSTARTTLS=YES
 useTLS=YES
+
+
+Motion configuration :
+
+sudo modprobe bcm2835-v4l2
+echo "bcm2835-v4l2" | sudo tee -a /etc/modules
+#modifs
+#/etc/motion/motion.conf

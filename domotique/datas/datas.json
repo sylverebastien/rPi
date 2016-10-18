@@ -1,21 +1,20 @@
 {
   "devices": {
-    "lampe1":{"statut":1,"prise_number":1,"code":"10101","count":0},
-    "lampe2":{"statut":1,"prise_number":2,"code":"10101","count":0},
-    "lampe3":{"statut":1,"prise_number":3,"code":"10101","count":0},
-    "lampe4":{"statut":1,"prise_number":4,"code":"10101","count":0},
-    "hp":{"statut":1,"prise_number":5,"code":"11100","count":0},
-    "bt":{"statut":1,"prise_number":6,"code":"11100","count":0},
-    "pc":{"statut":1,"prise_number":0,"code":"0","count":0}
+    "lampe1":{"statut":0,"prise_number":1,"code":"10101","count":0},
+    "lampe2":{"statut":0,"prise_number":2,"code":"10101","count":0},
+    "lampe3":{"statut":0,"prise_number":3,"code":"10101","count":0},
+    "lampe4":{"statut":0,"prise_number":4,"code":"10101","count":0},
+    "hp":{"statut":0,"prise_number":5,"code":"11100","count":0},
+    "bt":{"statut":0,"prise_number":6,"code":"11100","count":0},
+    "pc":{"statut":0,"prise_number":0,"code":"0","count":0}
   },
   "sensors": {
     "humidite":"49.00",
     "temperature":"23.00"
   },
   "globals": {
-    "reveil":{"statut":1},
-    "alarme":{"statut":1},
-    "auto-chauffage":{"statut":1},
-    "verrouillage":{"statut":1}
+    "reveil":{"statut":0},
+    "alarme":{"statut":0},
+    "auto-chauffage":{"statut":0}
   }
 }
