@@ -140,6 +140,7 @@
                 <a href="#" onclick="post('eteindrelampes');" id="eteindrelampes" class="button button-big button-green">Lampes OFF</a>
               </div>
             </div>
+          </div>
 
           <div class="content-block">
             <div class="row">
