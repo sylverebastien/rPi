@@ -11,9 +11,8 @@ class AppController {
 	public function temp() {
 		if ($this->App->validateTempResult()) {
 			$temperature = $_GET['temp'];
-			$this->Capteur->find('auto-chauffage');
-			$this->Capteur->value($temperature);
-			$this->Capteur->update();
+			$this->Capteur->find('temperature');
+			$this->Capteur->changeValue($temperature);
 			$this->App->toggleChauffage($temp);
 		}
 	}
@@ -48,17 +47,17 @@ class AppController {
 	}
 
 	public function reveil() {
-		$reveil = $this->Gladys->find('reveil');
-		$this->Gladys->toggle($this->val);
+		$this->Autotools->find('reveil');
+		$this->Autotools->toggle($this->val);
 	}
 
 	public function alarme() {
-		$reveil = $this->Gladys->find('alarme');
-		$this->Gladys->toggle($this->val);
+		$this->Autotools->find('alarme');
+		$this->Autotools->toggle($this->val);
 	}
 
 	public function stats() {
-		$states = $this->Gladys->getCurrentState();
+		$states = $this->App->getCurrentState();
 		$nb = $this->Prise->getStatsForEach();
 		include $this->viewpath.'stats-view.php';
 	}
@@ -67,9 +66,15 @@ class AppController {
 		include $this->viewpath.'musique-view.php';
 	}
 
+	public function autochauffage() {
+		$this->Autotools->find('auto-chauffage');
+		$this->Autotools->toggle($this->val);
+		//$this->temp();
+	}
+
 	public function chauffage() {
-		$this->Gladys->find('auto-chauffage');
-		$this->Gladys->toggle($this->val);
+		$this->Prise->find('chauffage');
+		$this->Prise->toggle($this->val);
 	}
 
 	public function ping() {
@@ -117,9 +122,9 @@ class AppController {
 		}
 
 		if ( isset($_POST['val']) )
-			$this->val=$_POST['val'];
+		$this->val=$_POST['val'];
 		elseif ( isset($_GET['val']) )
-			$this->val=$_GET['val'];
+		$this->val=$_GET['val'];
 
 	}
 }

@@ -1,46 +1,14 @@
 <?php
 class GladysModel extends AppModel {
 
+
 	public function direPhrase($phrase) {
 		echo "$phrase";
 		`pico2wave -l fr-FR -w temp.wav "$phrase"`;
 		exec('sudo omxplayer -o local temp.wav');
 		exec('rm temp.wav');
 	}
-	
-	public function find($name) {
-		foreach ($this->globals as $global_name => $global) {
-			if ($global_name == $name) {
-				$this->name = $global_name;
-				$this->statut = $global['statut'];
-				return $global;
-			}
-		}
-	}
-	
-	public function toggle($val){
-		$this->statut = $val;
-		$this->update();
-		if ($this->name == "alarme") { $this->alarme($val); }
-	}
 
-	public function update() {
-		$this->datas['globals'][$this->name]['statut'] = $this->statut;
-		parent::save();
-	}
-	
-	public function getCurrentState() {
-		$this->Prise = new GladysModel();
-		$states = [];
-		$states['auto-chauffage'] = $this->find('auto-chauffage');
-		$states['auto-chauffage'] = ($states['auto-chauffage']['statut'] == 1) ? 'checked' : '';
-		$states['reveil'] = $this->find('reveil');
-		$states['reveil'] = ($states['reveil']['statut'] == 1) ? 'checked' : '';
-		$states['alarme'] = $this->find('alarme');
-		$states['alarme'] = ($states['alarme']['statut'] == 1) ? 'checked' : '';
-		return $states;
-	}
-	
 	public function respond($tothisphrase) {
 		$tothisphrase = ucfirst($tothisphrase);
 
@@ -181,9 +149,5 @@ class GladysModel extends AppModel {
 
 		}
 	}
-	
-	public function __construct() {
-		parent::__construct();
-		$this->globals = $this->datas['globals'];
-	}
+
 }

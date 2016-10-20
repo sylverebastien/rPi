@@ -1,4 +1,4 @@
-<?php 
+<?php
 class CapteurModel extends AppModel {
 
 	public function find($name) {
@@ -9,6 +9,11 @@ class CapteurModel extends AppModel {
 				return $value;
 			}
 		}
+	}
+
+	public function changeValue($val){
+		$this->value = $val;
+		$this->update();
 	}
 
 	public function update() {

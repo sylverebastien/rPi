@@ -6,7 +6,8 @@
     "lampe4":{"statut":0,"prise_number":4,"code":"10101","count":0},
     "hp":{"statut":0,"prise_number":5,"code":"11100","count":0},
     "bt":{"statut":0,"prise_number":6,"code":"11100","count":0},
-    "pc":{"statut":0,"prise_number":0,"code":"0","count":0}
+    "pc":{"statut":0,"prise_number":0,"code":"0","count":0},
+    "chauffage":{"statut":0,"prise_number":7,"code":"11010","count":0}
   },
   "sensors": {
     "humidite":"49.00",

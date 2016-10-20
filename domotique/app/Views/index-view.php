@@ -131,6 +131,25 @@
             </ul>
           </div>
 
+          <div class="list-block">
+            <ul>
+              <!-- Chauffage -->
+              <li>
+                <div class="item-content">
+                  <div class="item-inner">
+                    <div class="item-title label">Chauffage</div>
+                    <div class="item-input">
+                      <label class="label-switch">
+                        <input id="chauffage" class="chauffage" type="checkbox" <?= $states['chauffage'];?>>
+                        <div class="checkbox"></div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
           <div class="content-block">
             <div class="row">
               <div class="col-50">
@@ -329,6 +348,9 @@ $("#hp").change(function() {
 });
 $("#bt").change(function() {
   post('bt');
+});
+$("#chauffage").change(function() {
+  post('chauffage');
 });
 
 function post(id){

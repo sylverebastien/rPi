@@ -7,6 +7,19 @@ class PriseModel extends AppModel {
 	public $count;
 
 
+	public function find($name) {
+		foreach ($this->prises as $prise_name => $prise) {
+			if ($prise_name == $name) {
+				$this->name = $prise_name;
+				$this->code = $prise['code'];
+				$this->prise_number = $prise['prise_number'];
+				$this->statut = $prise['statut'];
+				$this->count = $prise['count'];
+				return $prise;
+			}
+		}
+	}
+
 	public function toggle($val){
 		$this->statut = $val;
 		exec('sudo /home/pi/rcswitch-pi/./send '.$this->code.' '.$this->prise_number.' '.$val.'');
@@ -39,20 +52,9 @@ class PriseModel extends AppModel {
 		$nb['hp'] = ($nb['hp']['count']);
 		$nb['bt'] = $this->find('bt');
 		$nb['bt'] = ($nb['bt']['count']);
+		$nb['chauffage'] = $this->find('chauffage');
+		$nb['chauffage'] = ($nb['chauffage']['count']);
 		return $nb;
-	}
-
-	public function find($name) {
-		foreach ($this->prises as $prise_name => $prise) {
-			if ($prise_name == $name) {
-				$this->name = $prise_name;
-				$this->code = $prise['code'];
-				$this->prise_number = $prise['prise_number'];
-				$this->statut = $prise['statut'];
-				$this->count = $prise['count'];
-				return $prise;
-			}
-		}
 	}
 
 	public function __construct() {

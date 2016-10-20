@@ -7,7 +7,7 @@
           <div class="item-title label">Gestion auto chauffage</div>
           <div class="item-input">
             <label class="label-switch">
-              <input id="chauffage" class="autotools" type="checkbox" <?= $states['auto-chauffage'];?>>
+              <input id="autochauffage" class="autotools" type="checkbox" <?= $states['auto-chauffage'];?>>
               <div class="checkbox"></div>
             </label>
           </div>
@@ -131,18 +131,9 @@
 </div>
 
 <script type="text/javascript">
-function post(id){
-  var idpdf = id;
-  if ($('#'+id).is(':checked')) {
-    var val = "1";
-  }
-  else {
-    var val = "0";
-  }
-  $.post( "index.php?q=ajax&action="+id+"", { val: val } );
-}
-$("#chauffage").change(function() {
-  post('chauffage');
+
+$("#autochauffage").change(function() {
+  post('autochauffage');
 });
 $("#reveil").change(function() {
   post('reveil');
@@ -153,4 +144,16 @@ $("#alarme").change(function() {
 $("#serveur").change(function() {
   post('serveur');
 });
+
+function post(id){
+  var idpdf = id;
+  if ($('#'+id).is(':checked')) {
+    var val = "1";
+  }
+  else {
+    var val = "0";
+  }
+  $.post( "index.php?q=ajax&action="+id+"", { val: val } );
+}
+
 </script>
