@@ -20,8 +20,9 @@ class UtilsModel {
 		$text2 ='Il y a '.$data['main']['humidity'][0].' % d\'humidité et le vent souffle à '.$data['wind']['speed'][0].' mètres par seconde.';
 		$weekend = strftime('%A');
 		// TTS
-		$this->direPhrase($text);
-		$this->direPhrase($text2);
+		$this->Gladys = new GladysModel();
+		$this->Gladys->direPhrase($text);
+		$this->Gladys->direPhrase($text2);
 	}
 
 	public function date(){
@@ -29,7 +30,8 @@ class UtilsModel {
 		$healthy = array("Monday", "Tuesday", "Wednesday","Thursday","Friday","Saturday","Sunday","January","February","March","April","May","June","July","August","September","October","November","December");
 		$yummy   = array("Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi","Samedi","Dimanche","Janvier","Fevrier","Mars","Avril","Mai","Juin","Juillet","Aout","Septembre","Octobre","Novembre","Décembre");
 		$date = str_replace($healthy, $yummy, $date);
-		$this->direPhrase($date);
+		$this->Gladys = new GladysModel();
+		$this->Gladys->direPhrase($date);
 	}
 
 	public function alarme($val){
