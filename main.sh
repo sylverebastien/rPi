@@ -5,7 +5,7 @@ _help () {
 cat <<EOF
 Usage: ${0##*/} [-$flags]
 -h  display this help
--i  install [all/base/mail/voice/camera/radiofz]
+-i  install [all/base/mail/voice/camera/radiofz/sensor]
 -u  update domotique folder in apache
 EOF
 }
@@ -44,6 +44,9 @@ _install () {
 	sudo ln -s $DIR/utils/433Utils/RPi_utils/codesend /usr/bin/codesend
 	sudo ln -s $DIR/utils/433Utils/RPi_utils/RFSniffer /usr/bin/RFSniffer
 	rm -rf $DIR/utils/rcswitch-pi
+  elif [[ $1 == "all" || $1 == "sensor" ]]; then
+	cc -Wall utils/dht.c -o utils/dht -lwiringPi
+	sudo ln -s $DIR/utils/dht /usr/bin/dht
   else
 	sudo service apache2 restart
   fi
