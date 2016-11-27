@@ -5,7 +5,7 @@ _help () {
 cat <<EOF
 Usage: ${0##*/} [-$flags]
 -h  display this help
--i  install [all/base/mail/voice/camera/radiofz/sensor]
+-i  install [all/base/mail/voice/camera/radiofz/sensor/snowboy]
 -u  update domotique folder in apache
 EOF
 }
@@ -47,6 +47,16 @@ _install () {
   elif [[ $1 == "all" || $1 == "sensor" ]]; then
 	cc -Wall utils/dht.c -o utils/dht -lwiringPi
 	sudo ln -s $DIR/utils/dht /usr/bin/dht
+  elif [[ $1 == "all" || $1 == "snowboy" ]]; then
+	arecord -l
+	python utils/get-pip.py
+	sudo pip install --upgrade pip
+	aplay -l
+	##nano ~/.asoundrc
+	export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+	sudo apt-get install python-pyaudio python3-pyaudio sox
+	sudo apt-get install libatlas-base-dev libatlas-dev
+	sudo pip install pyaudio
   else
 	sudo service apache2 restart
   fi
