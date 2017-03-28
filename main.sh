@@ -11,25 +11,28 @@ EOF
 }
 
 _install () {
+  sudo apt-get update
   if [[ $1 == "all" || $1 == "base" ]]; then
-	sudo apt-get update
 	sudo apt-get install -y bc
 	sudo apt-get install -y apache2
 	sudo apt-get install -y php5 libapache2-mod-php5
 	sudo apt-get install -y curl php5-curl
 	sudo apt-get install -y alsa-utils mpg123 mpg321 moc moc-ffmpeg-plugin
 	sudo apt-get install -y wakeonlan
-  elif [[ $1 == "all" || $1 == "mail" ]]; then
-	sudo apt-get update
+  fi
+  if [[ $1 == "all" || $1 == "mail" ]]; then
 	sudo apt-get install -y ssmtp mailutils mpack
 	sudo chfn -f "rPi" root
 	mkdir -p $DIR/mail
-  elif [[ $1 == "all" || $1 == "voice" ]]; then
+  fi
+  if [[ $1 == "all" || $1 == "voice" ]]; then
 	sudo apt-get install -y libttspico-utils
-  elif [[ $1 == "all" || $1 == "camera" ]]; then
-	sudo apt-get install motion
+  fi
+  if [[ $1 == "all" || $1 == "camera" ]]; then
+	sudo apt-get install -y motion
 	mkdir -p $DIR/motion
-  elif [[ $1 == "all" || $1 == "radiofz" ]]; then
+  fi
+  if [[ $1 == "all" || $1 == "radiofz" ]]; then
 	mkdir -p $DIR/utils
 	cd $DIR/utils
 	git clone git://git.drogon.net/wiringPi
@@ -44,22 +47,23 @@ _install () {
 	sudo ln -s $DIR/utils/433Utils/RPi_utils/codesend /usr/bin/codesend
 	sudo ln -s $DIR/utils/433Utils/RPi_utils/RFSniffer /usr/bin/RFSniffer
 	rm -rf $DIR/utils/rcswitch-pi
-  elif [[ $1 == "all" || $1 == "sensor" ]]; then
+  fi
+  if [[ $1 == "all" || $1 == "sensor" ]]; then
 	cc -Wall utils/dht.c -o utils/dht -lwiringPi
 	sudo ln -s $DIR/utils/dht /usr/bin/dht
-  elif [[ $1 == "all" || $1 == "snowboy" ]]; then
+  fi
+  if [[ $1 == "all" || $1 == "snowboy" ]]; then
 	arecord -l
-	python utils/get-pip.py
+	sudo apt-get install -y python-pip
 	sudo pip install --upgrade pip
 	aplay -l
 	##nano ~/.asoundrc
 	export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
-	sudo apt-get install python-pyaudio python3-pyaudio sox
-	sudo apt-get install libatlas-base-dev libatlas-dev
+	sudo apt-get install -y python-pyaudio python3-pyaudio sox
+	sudo apt-get install -y libatlas-base-dev libatlas-dev
 	sudo pip install pyaudio
-  else
-	sudo service apache2 restart
   fi
+  sudo service apache2 restart
 }
 
 _update () {
