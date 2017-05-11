@@ -1,0 +1,7 @@
+*~
+*.pyc
+utils/433Utils/*
+utils/wiringPi/*
+utils/dht
+utils/snowboyde*
+utils/_snowboyde*
